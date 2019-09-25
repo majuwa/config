@@ -1,0 +1,43 @@
+-   hosts: localhost
+    tasks:
+        -   name: Install git
+            become: yes
+            package:
+                name: git
+                state: present
+        -   name: Install build essential equal
+            become: yes
+            package:
+                name: make, automake, gcc, gcc-c++, kernel-devel
+                state: present
+        -   name: Install DNF-Dragora
+            become: yes
+            package:
+                name: dnfdragora
+                state: present
+        -   name: Install Do not disturb gnome
+            become: yes
+            package:
+                name: gnome-shell-extension-do-not-disturb-button
+                state: present
+        -   name: Install Gnome-Icon Support
+            become: yes
+            package:
+                name: gnome-shell-extension-topicons-plus
+                state: present
+        -   name: Install Gnome-Pomodoro
+            become: yes
+            package:
+                name: gnome-shell-extension-pomodoro
+                state: present  
+        -   name: Install KeepassX
+            become: yes
+            package:
+                name: keepassxc
+                state: present      
+        -   name: Install Kate
+            become: yes
+            package:
+                name: kate
+                state: present
+
