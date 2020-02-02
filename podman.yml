@@ -1,0 +1,23 @@
+-   hosts: localhost
+    tasks:
+        -   name: Install git
+            become: yes
+            package:
+                name: git
+                state: present
+        -   name: Install build essential equal
+            become: yes
+            package:
+                name: make, automake, gcc, gcc-c++, kernel-devel
+                state: present
+        -   name: Install podman
+            become: yes
+            package:
+                name: podman
+                state: present
+        -   name: Install toolbox
+            become: yes
+            package:
+                name: toolbox
+                state: present
+
