@@ -1,43 +1,64 @@
 -   hosts: localhost
     tasks:
         -   name: Install git
-            become: yes
+            become: true
             package:
                 name: git
                 state: present
         -   name: Install build essential equal
-            become: yes
+            become: true
             package:
                 name: make, automake, gcc, gcc-c++, kernel-devel
                 state: present
         -   name: Install DNF-Dragora
-            become: yes
+            become: true
             package:
                 name: dnfdragora
                 state: present
         -   name: Install Do not disturb gnome
-            become: yes
+            become: true
             package:
                 name: gnome-shell-extension-do-not-disturb-button
                 state: present
         -   name: Install Gnome-Icon Support
-            become: yes
+            become: true
             package:
                 name: gnome-shell-extension-topicons-plus
                 state: present
         -   name: Install Gnome-Pomodoro
-            become: yes
+            become: true
             package:
                 name: gnome-shell-extension-pomodoro
                 state: present  
         -   name: Install KeepassX
-            become: yes
+            become: true
             package:
                 name: keepassxc
                 state: present      
         -   name: Install Kate
-            become: yes
+            become: true
             package:
                 name: kate
                 state: present
+        -   name: Uninstall Firefox
+            become: true
+            package:
+                name: firefox
+                state: absent
+        -   name: Add the flathub flatpak repository remote to the user installation
+            flatpak_remote:
+                name: flathub
+                state: present
+                flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+                method: user
+        -   name: Install Firefox
+            flatpak:
+                name: org.mozilla.firefox
+                state: present
+                method: user
+        -   name: Install nextcloud
+            flatpak:
+                name: org.nextcloud.Nextcloud
+                state: present
+                method: user
 
