@@ -56,9 +56,19 @@
                 name: org.mozilla.firefox
                 state: present
                 method: user
-        -   name: Install nextcloud
-            flatpak:
-                name: org.nextcloud.Nextcloud
+        -   name: Install VIM
+            become: true
+            package:
+                name: vim-enhanced
                 state: present
-                method: user
+        -   name: Install arc-theme
+            become: true
+            package:
+                name: arc-theme
+                state: present
+        -   name: Install Maven
+            become: true
+            package:
+                name: maven
+                state: present                          
 
