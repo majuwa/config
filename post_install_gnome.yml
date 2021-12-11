@@ -15,21 +15,6 @@
             package:
                 name: dnfdragora
                 state: present
-        -   name: Install Do not disturb gnome
-            become: true
-            package:
-                name: gnome-shell-extension-do-not-disturb-button
-                state: present
-        -   name: Install Gnome-Icon Support
-            become: true
-            package:
-                name: gnome-shell-extension-topicons-plus
-                state: present
-        -   name: Install Gnome-Pomodoro
-            become: true
-            package:
-                name: gnome-shell-extension-pomodoro
-                state: present  
         -   name: Install KeepassX
             become: true
             package:
@@ -39,27 +24,6 @@
             become: true
             package:
                 name: kate
-                state: present
-        -   name: Uninstall Firefox
-            become: true
-            package:
-                name: firefox
-                state: absent
-        -   name: Add the flathub flatpak repository remote to the user installation
-            flatpak_remote:
-                name: flathub
-                state: present
-                flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
-                method: user
-        -   name: Install Firefox
-            flatpak:
-                name: org.mozilla.firefox
-                state: present
-                method: user
-        -   name: Install VIM
-            become: true
-            package:
-                name: vim-enhanced
                 state: present
         -   name: Install arc-theme
             become: true
