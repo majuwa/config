@@ -30,11 +30,6 @@
             package:
                 name: kate
                 state: present
-        -   name: Install Keepass
-            become: yes
-            package:
-                name: keepass
-                state: present
         -   name: Install VIM
             become: yes
             package:
@@ -45,25 +40,10 @@
             package:
                 name: java-openjdk
                 state: present
-        -   name: Install JDK 8
-            become: yes
-            package:
-                name: java-1.8.0-openjdk
-                state: present
-        -   name: Install JavaFX 10
+        -   name: Install JavaFX
             become: yes
             package:
                 name: openjfx
-                state: present
-        -   name: Install JavaFX 8
-            become: yes
-            package:
-                name: java-1.8.0-openjdk-openjfx
-                state: present
-        -   name: Install texlive full
-            become: yes
-            package:
-                name: texlive-scheme-full
                 state: present
         -   name: fedora-workstation-repositories
             become: yes
@@ -104,24 +84,9 @@
                 name: org.octave.Octave
                 state: present
                 method: user
-        -   name: Install the visual code package from flathub
-            flatpak:
-                name: com.visualstudio.code
-                state: present
-                method: user
         -   name: Install the vlc package from flathub
             flatpak:
                 name: org.videolan.VLC
-                state: present
-                method: user
-        -   name: Install the Slack package from flathub
-            flatpak:
-                name: com.slack.Slack
-                state: present
-                method: user
-        -   name: Install the Skype package from flathub
-            flatpak:
-                name: com.skype.Client
                 state: present
                 method: user
         -   name: Install the PyCharm package from flathub
@@ -129,23 +94,18 @@
                 name: com.jetbrains.PyCharm-Community
                 state: present
                 method: user
-        -   name: Install the Atom package from flathub
-            flatpak:
-                name: io.atom.Atom
+        -   name: Install Maven
+            become: true
+            package:
+                name: maven
                 state: present
-                method: user
-        -   name: Install the DrawIO package from flathub
-            flatpak:
-                name: com.jgraph.drawio.desktop
-                state: present
-                method: user
-        -   name: Install the Skype package from flathub
-            flatpak:
-                name: org.texstudio.TeXstudio
-                state: present
-                method: user
         -   name: Autoremove unneeded packages installed as dependencies
             become: yes
             dnf:
                 autoremove: yes
+        -   name: Install KeepassX
+            become: true
+            package:
+                name: keepassxc
+                state: present
 
