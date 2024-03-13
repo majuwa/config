@@ -108,4 +108,15 @@
             package:
                 name: keepassxc
                 state: present
+        -   name: Remove Nano default
+            become: yes
+            package:
+                name: nano-default-editor
+                state: absent
+        -   name: Make VIM default
+            become: yes
+            package:
+                name: vim-default-editor
+                state: present
+
 
