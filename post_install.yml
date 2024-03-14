@@ -118,5 +118,8 @@
             package:
                 name: vim-default-editor
                 state: present
-
-
+        -   name: Install steam
+            become: yes
+            package:
+                name: steam
+                state: present
